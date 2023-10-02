@@ -57,9 +57,6 @@ BuildRequires:  cyrus-sasl-devel
 #BuildRequires: qpid-proton-c-devel >= %{proton_minimum_version}
 BuildRequires: python3-qpid-proton >= %{proton_minimum_version}
 # This is required for proton 0.38.0 and above
-#BuildRequires: python38-devel 
-# This is required for skupper-router ?
-#BuildRequires: python36-devel 
 BuildRequires: cmake
 BuildRequires: openssl-devel
 BuildRequires: libwebsockets-devel >= %{libwebsockets_minimum_version}
@@ -86,7 +83,7 @@ Requires(preun): systemd
 Requires(postun): systemd
 %endif
 
-Requires: libwebsockets = %{libwebsockets_minimum_version}
+Requires: libwebsockets >= %{libwebsockets_minimum_version}
 Requires: libnghttp2 >= %{libnghttp2_minimum_version}
 
 %description

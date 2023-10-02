@@ -39,10 +39,7 @@ Source7:       CMakeLists.txt.patch
 %{!?_licensedir:%global license %doc}
 %{!?_licensedir:%global _pkglicensedir %{_pkgdocdir}}
 
-ExcludeArch: i686
-
-
-#Patch3:        dispatch.patch
+#ExcludeArch: i686
 
 # proton deps (not building bindings so don't need python, ruby)
 BuildRequires:  gcc
@@ -56,7 +53,6 @@ BuildRequires:  cyrus-sasl-devel
 # router deps
 #BuildRequires: qpid-proton-c-devel >= %{proton_minimum_version}
 BuildRequires: python3-qpid-proton >= %{proton_minimum_version}
-# This is required for proton 0.38.0 and above
 BuildRequires: cmake
 BuildRequires: openssl-devel
 BuildRequires: libwebsockets-devel >= %{libwebsockets_minimum_version}
@@ -187,9 +183,6 @@ Requires: skupper-router-common == %{version}
 %prep
 %setup -q
 %setup -q -D -b 5 -n qpid-proton-%{proton_vendored_version}
-
-#%patch3 -p1
-#%patch4 -p1
 
 # downstream only - patch the proton make
 pushd %{_builddir}/%{embedded_proton_version}

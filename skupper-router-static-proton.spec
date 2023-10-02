@@ -21,7 +21,6 @@ Release:       %{buildnum}%{?dist}
 Summary:       Skupper router
 License:       ASL 2.0
 URL:           http://skupper.io/
-#Source0:       http://www.github.com/skupperproject/skupper-router/archive/refs/tags/%{version}.tar.gz
 Source0:       skupper-router-%{version}.tar.gz
 Source2:       licenses.xml
 # proton
@@ -51,7 +50,6 @@ BuildRequires:  openssl-devel
 BuildRequires:  cyrus-sasl-devel
 
 # router deps
-#BuildRequires: qpid-proton-c-devel >= %{proton_minimum_version}
 BuildRequires: python3-qpid-proton >= %{proton_minimum_version}
 BuildRequires: cmake
 BuildRequires: openssl-devel
@@ -64,13 +62,11 @@ BuildRequires: systemd
 %endif
 
 
-#%package 
 #Summary:  The Skupper Router executable
 Requires:  python3
 Requires: skupper-router-common == %{version}
 
 # proton
-#Requires:  qpid-proton-c%{?_isa} >= %{proton_minimum_version}
 Requires:  python3-qpid-proton >= %{proton_minimum_version}
 
 %if %{_use_systemd}
@@ -196,7 +192,6 @@ popd
 
 cd %{_builddir}/%{embedded_proton_version}
 
-#%__cmake . -B "%{__cmake_builddir}"  \
 %cmake . -B "%{__cmake_builddir}"  \
     -DCMAKE_C_FLAGS="$CMAKE_CXX_FLAGS $CFLAGS -Wno-error=deprecated-declarations" \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
@@ -211,8 +206,6 @@ cd %{_builddir}/%{embedded_proton_version}
 
 cmake --build "%{__cmake_builddir}"
 cmake --install "%{__cmake_builddir}"
-#%__cmake --build "%{__cmake_builddir}" %{?_smp_mflags} --verbose
-#%__cmake --install "%{__cmake_builddir}"
 
 export DOCS=ON
 
@@ -235,11 +228,6 @@ cd %{_builddir}/skupper-router-%{version}
        "-DCMAKE_C_FLAGS=$CMAKE_CXX_FLAGS $CFLAGS -Wno-error=deprecated-declarations" \
        .
 
-
-# to fix multilib install, force (any) known date to generated file (and patched .py files)
-#touch -r %{SOURCE5} %{_builddir}/skupper-router-%{version}/tests/system_tests_edge_router.py
-#touch -r %{SOURCE5} %{_builddir}/skupper-router-%{version}/tests/system_tests_one_router.py
-#touch -r %{SOURCE5} %{_builddir}/skupper-router-%{version}/tests/system_tests_ssl.py
 
 %cmake_build --target all --target man
 #make doc
@@ -268,11 +256,6 @@ rm -f %{buildroot}%{_pkgdocdir}/LICENSE
 rm -f  %{buildroot}/%{_includedir}/qpid/dispatch.h
 rm -fr %{buildroot}/%{_includedir}/qpid/dispatch
 rm -fr %{buildroot}/share/index.html
-
-#%post -p /sbin/ldconfig
-
-#%postun -p /sbin/ldconfig
-
 
 %changelog
 * Tue Sep 19 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.4.3-1

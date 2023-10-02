@@ -9,5 +9,5 @@ Run the following commands to create an upstream rpm for skupper-router
 4. The container already runs the following two commands
   rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-common-2.4.3-1.fc38.noarch.rpm
   rpm -U ~/rpmbuild/RPMS/x86_64/skupper-router-2.4.3-1.fc38.x86_64.rpm
+5. When you run the Containerfile as shown in Step #2, skrouterd will be launched
 
-You should be able to launch skrouterd executable from inside the container

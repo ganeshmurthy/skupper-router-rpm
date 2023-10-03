@@ -2,7 +2,7 @@
 
 Run the following commands to create an upstream rpm for skupper-router
 
-1. podman build -t gmurthy/fedora38/skupper-router-rpm --file=Containerfile-skupper-rpm .
+1. podman build -t gmurthy/fedora38/skupper-router-rpm --file=Containerfile .
 2. podman run --net host -it gmurthy/fedora38/skupper-rpm
 3. The skupper-router rpms are available ~/rpmbuild/RPMS folder and is installed in the container
 

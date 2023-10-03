@@ -81,7 +81,7 @@ Requires: libwebsockets >= %{libwebsockets_minimum_version}
 Requires: libnghttp2 >= %{libnghttp2_minimum_version}
 
 %description
-A lightweight message router, written in C and built on Qpid Proton, that provides flexible and scalable interconnect backend for skupper.io Level 7 Virtual Application Networks
+A lightweight message router, that provides flexible and scalable interconnect backend for skupper.io Level 7 Virtual Application Networks
 
 
 %files

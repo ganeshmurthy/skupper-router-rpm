@@ -22,7 +22,7 @@ FROM fedora:38
 
 MAINTAINER "dev@pid.apache.org"
 
-RUN dnf -y install gcc gcc-c++ cmake libuuid-devel openssl openssl-devel cyrus-sasl-devel cyrus-sasl-plain cyrus-sasl-gssapi swig git make python3-qpid-proton qpid-proton-c-devel systemd rpmdevtools rpmlint valgrind emacs libwebsockets-devel python3-devel curl libnghttp2-devel nmap-ncat asciidoc rpkg tox libffi-devel python3-setuptools libunwind-devel 
+RUN dnf -y install gcc gcc-c++ cmake libuuid-devel openssl openssl-devel cyrus-sasl-devel cyrus-sasl-plain cyrus-sasl-gssapi swig git make python3-qpid-proton qpid-proton-c-devel systemd rpmdevtools rpmlint valgrind emacs libwebsockets-devel python3-devel curl libnghttp2-devel nmap-ncat asciidoc rpkg tox libffi-devel python3-setuptools libunwind-devel fedpkg
 WORKDIR /
 RUN rpmdev-setuptree
 COPY ./skupper-router-2.4.3.tar.gz /root/rpmbuild/SOURCES

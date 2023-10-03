@@ -60,6 +60,7 @@ BuildRequires: libnghttp2-devel >= %{libnghttp2_minimum_version}
 BuildRequires: asciidoc >= 8.6.8
 BuildRequires: systemd
 BuildRequires: python3-devel
+BuildRequires: python3-setuptools
 %endif
 
 

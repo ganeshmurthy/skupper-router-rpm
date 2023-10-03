@@ -59,6 +59,7 @@ BuildRequires: libnghttp2-devel >= %{libnghttp2_minimum_version}
 %if 0%{?fedora} || (0%{?rhel} && 0%{?rhel} >= 7)
 BuildRequires: asciidoc >= 8.6.8
 BuildRequires: systemd
+BuildRequires: python3-devel
 %endif
 
 

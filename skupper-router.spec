@@ -38,7 +38,7 @@ Source7:       CMakeLists.txt.patch
 %{!?_licensedir:%global license %doc}
 %{!?_licensedir:%global _pkglicensedir %{_pkgdocdir}}
 
-#ExcludeArch: i686
+ExcludeArch: i686
 
 # proton deps (not building bindings so don't need python, ruby)
 BuildRequires:  gcc

@@ -81,7 +81,7 @@ Requires: libwebsockets >= %{libwebsockets_minimum_version}
 Requires: libnghttp2 >= %{libnghttp2_minimum_version}
 
 %description
-A lightweight message router, that provides flexible and scalable interconnect backend for skupper.io Level 7 Virtual Application Networks
+A lightweight message router, that provides backend for skupper.io
 
 
 %files
@@ -259,42 +259,11 @@ rm -f  %{buildroot}/%{_includedir}/qpid/dispatch.h
 rm -fr %{buildroot}/%{_includedir}/qpid/dispatch
 rm -fr %{buildroot}/share/index.html
 
+for file in %{buildroot}/%{_exec_prefix}/lib/skupper-router/tests/{config-2/gencerts,ssl_certs/gencerts,ssl_certs/gencerts_openssl}.sh; do
+   chmod a+x $file
+done
+
 %changelog
 * Tue Sep 19 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.4.3-1
 - Rebase to 2.4.3 skupper-router
 
-* Sun Jul 23 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.4.2-1
-- Rebase to 2.4.2 skupper-router
-
-* Wed Jun 28 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.4.1-2
-- Bumped buildnum to 2
-
-* Tue Jun 20 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.4.1-1
-- Rebase to 2.4.1 skupper-router
-
-* Wed Jun 14 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.4.0-1
-- Rebase to 2.4.0 skupper-router
-
-* Tue Feb 7 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.3.0-1
-- Rebase to 2.3.0 skupper-router
-
-* Wed Jan 11 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.2.1-1
-- Rebase to 2.2.1 skupper-router
-
-* Tue Dec 20 2022 Mike Cressman <mcressma@redhat.com> - 2.2.0-3
-- Finalize the version string
-
-* Fri Dec 16 2022 Mike Cressman <mcressma@redhat.com> - 2.2.0-2
-- Update the version to include upstream and downstream info
-
-* Mon Nov 14 2022 Ganesh Murthy <gmurthy@redhat.com> - 2.2.0-1
-- Rebase to 2.2.0 skupper-router
-
-* Fri Oct 14 2022 Ganesh Murthy <gmurthy@redhat.com> - 2.1.0-1
-- Rebase to 2.1.0 skupper-router
-
-* Fri Jun 3 2022 Mike Cressman <mcressma@redhat.com> - 2.0.2-1
-- Rebase to 2.0.2 skupper-router
-
-* Thu May 5 2022 Mike Cressman <mcressma@redhat.com> - 2.0.1-3
-- Initial build of skupper-router for Application Interconnect 1.0

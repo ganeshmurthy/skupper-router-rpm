@@ -31,9 +31,9 @@ COPY ./licenses.xml /root/rpmbuild/SOURCES
 COPY ./PROTON-2764-2763-2748.patch /root/rpmbuild/SOURCES
 COPY ./skupper-router.spec /root/rpmbuild/SPECS
 COPY ./CMakeLists.txt.patch /root/rpmbuild/SOURCES
-RUN rpmbuild -bb /root/rpmbuild/SPECS/skupper-router.spec && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-common-2.4.3-1.fc38.noarch.rpm && rpm -U ~/rpmbuild/RPMS/x86_64/skupper-router-2.4.3-1.fc38.x86_64.rpm
+RUN rpmbuild -bb /root/rpmbuild/SPECS/skupper-router.spec && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-common-2.4.3-1.fc38.noarch.rpm && rpm -U ~/rpmbuild/RPMS/x86_64/skupper-router-2.4.3-1.fc38.x86_64.rpm && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-tools-2.4.3-1.fc38.noarch.rpm
 
-CMD ["skrouterd"]
-#CMD ["/bin/bash"]
+#CMD ["skrouterd"]
+CMD ["/bin/bash"]
 
 

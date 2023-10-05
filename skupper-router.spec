@@ -240,6 +240,10 @@ cd %{_builddir}/skupper-router-%{version}
 cd %{_builddir}/skupper-router-%{version}
 %cmake_install
 
+pushd %{buildroot}/%{_exec_prefix}/lib/skupper-router/python
+find . -name '*.pyc' -type f -delete
+popd
+
 %if %{_use_systemd}
 
 install -dm 755 %{buildroot}%{_unitdir}

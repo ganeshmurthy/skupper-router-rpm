@@ -240,6 +240,8 @@ cd %{_builddir}/skupper-router-%{version}
 cd %{_builddir}/skupper-router-%{version}
 %cmake_install
 %py_byte_compile %{python3} %{buildroot}/%{_exec_prefix}/lib/
+%py3_shebang_fix %{buildroot}/%{_bindir}/skstat
+%py3_shebang_fix %{buildroot}/%{_bindir}/skmanage
 
 %if %{_use_systemd}
 

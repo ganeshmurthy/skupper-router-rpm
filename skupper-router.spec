@@ -16,7 +16,7 @@
 %undefine __brp_mangle_shebangs
 
 Name:          skupper-router
-Version:       2.4.3
+Version:       2.5.0
 Release:       %{buildnum}%{?dist}
 Summary:       Skupper router
 License:       ASL 2.0
@@ -267,6 +267,6 @@ for file in %{buildroot}/%{_exec_prefix}/lib/skupper-router/tests/{config-2/genc
 done
 
 %changelog
-* Tue Sep 19 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.4.3-1
-- Rebase to 2.4.3 skupper-router
+* Wed Nov 8 2023 Ganesh Murthy <gmurthy@redhat.com> - 2.5.0-1
+- Rebase to 2.5.0 skupper-router
 

@@ -25,13 +25,12 @@ MAINTAINER "dev@pid.apache.org"
 RUN dnf -y install gcc gcc-c++ cmake libuuid-devel openssl openssl-devel cyrus-sasl-devel cyrus-sasl-plain cyrus-sasl-gssapi swig git make python3-qpid-proton qpid-proton-c-devel systemd rpmdevtools rpmlint valgrind emacs libwebsockets-devel python3-devel curl libnghttp2-devel nmap-ncat asciidoc rpkg tox libffi-devel python3-setuptools libunwind-devel fedpkg
 WORKDIR /
 RUN rpmdev-setuptree
-COPY ./skupper-router-2.4.3.tar.gz /root/rpmbuild/SOURCES
+COPY ./skupper-router-2.5.0.tar.gz /root/rpmbuild/SOURCES
 COPY ./qpid-proton-0.39.0.tar.gz /root/rpmbuild/SOURCES
 COPY ./licenses.xml /root/rpmbuild/SOURCES
 COPY ./PROTON-2764-2763-2748.patch /root/rpmbuild/SOURCES
 COPY ./skupper-router.spec /root/rpmbuild/SPECS
-COPY ./CMakeLists.txt.patch /root/rpmbuild/SOURCES
-RUN rpmbuild -bb /root/rpmbuild/SPECS/skupper-router.spec && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-common-2.4.3-1.fc38.noarch.rpm && rpm -U ~/rpmbuild/RPMS/x86_64/skupper-router-2.4.3-1.fc38.x86_64.rpm && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-tools-2.4.3-1.fc38.noarch.rpm
+RUN rpmbuild -bb /root/rpmbuild/SPECS/skupper-router.spec && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-common-2.5.0-1.fc38.noarch.rpm && rpm -U ~/rpmbuild/RPMS/x86_64/skupper-router-2.5.0-1.fc38.x86_64.rpm && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-tools-2.5.0-1.fc38.noarch.rpm
 
 CMD ["skrouterd"]
 #CMD ["/bin/bash"]

@@ -30,7 +30,6 @@ Source5:       %{embedded_proton_version}.tar.gz
 # 0987726b PROTON-2763: Raw connection double DISCONNECT event
 # cb637b79 PROTON-2748: Raw connection async close fix and tests. First part of pull 402
 Source6:       PROTON-2764-2763-2748.patch
-Source7:       CMakeLists.txt.patch
 
 %define red_hat_version %{version}-%{buildnum}
 
@@ -185,9 +184,6 @@ Requires: skupper-router-common == %{version}
 # downstream only - patch the proton make
 pushd %{_builddir}/%{embedded_proton_version}
 patch -p1 < %{SOURCE6}
-popd
-pushd %{_builddir}/skupper-router-%{version}
-patch -p1 < %{SOURCE7}
 popd
 
 %build

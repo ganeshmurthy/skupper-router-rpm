@@ -37,8 +37,6 @@ Source6:       PROTON-2764-2763-2748.patch
 %{!?_licensedir:%global license %doc}
 %{!?_licensedir:%global _pkglicensedir %{_pkgdocdir}}
 
-ExcludeArch: i686
-
 # proton deps (not building bindings so don't need python, ruby)
 BuildRequires:  gcc
 BuildRequires:  gcc-c++

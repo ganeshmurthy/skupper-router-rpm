@@ -30,8 +30,8 @@ COPY ./qpid-proton-0.39.0.tar.gz /root/rpmbuild/SOURCES
 COPY ./licenses.xml /root/rpmbuild/SOURCES
 COPY ./PROTON-2764-2763-2748.patch /root/rpmbuild/SOURCES
 COPY ./skupper-router.spec /root/rpmbuild/SPECS
+
 RUN rpmbuild -bb /root/rpmbuild/SPECS/skupper-router.spec && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-common-2.5.0-1.fc40.noarch.rpm && rpm -U ~/rpmbuild/RPMS/x86_64/skupper-router-2.5.0-1.fc40.x86_64.rpm && rpm -U ~/rpmbuild/RPMS/noarch/skupper-router-tools-2.5.0-1.fc40.noarch.rpm
-#RUN rpmlint ~/rpmbuild/RPMS/noarch/skupper-router-common-2.5.0-1.fc40.noarch.rpm && rpmlint ~/rpmbuild/RPMS/noarch/skupper-router-tools-2.5.0-1.fc40.noarch.rpm && rpmlint ~/rpmbuild/RPMS/x86_64/skupper-router-2.5.0-1.fc40.x86_64.rpm
 
 #CMD ["skrouterd"]
 CMD ["/bin/bash"]
